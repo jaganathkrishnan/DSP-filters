@@ -1,28 +1,22 @@
-clc; clear; close all;
+function [snr_before, snr_after, improvement] = snr_comparison(clean_signal, noisy_signal, filtered_signal, fs)
+    % Compute SNR before filtering
+    noise = noisy_signal - clean_signal;
+    snr_before = 10 * log10(var(clean_signal) / var(noise));
 
-fs = 8000; % Sampling frequency
-t = 0:1/fs:2; % 2 seconds of data
+    % Compute SNR after filtering
+    noise_after = filtered_signal - clean_signal;
+    snr_after = 10 * log10(var(clean_signal) / var(noise_after));
 
-% Generate a clean signal and add noise
-clean_signal = sin(2*pi*300*t); % 300Hz sine wave
-noise = 0.3 * randn(size(clean_signal)); % Gaussian noise
-noisy_signal = clean_signal + noise;
-
-% Apply a Low-Pass FIR Filter
-N = 50;
-fc = 500;
-h_lp = fir1(N, fc/(fs/2), 'low', hamming(N+1));
-filtered_signal = filter(h_lp, 1, noisy_signal);
-
-% Compute SNR before and after filtering
-snr_before = snr(clean_signal, noise);
-snr_after = snr(clean_signal, filtered_signal - clean_signal);
-
-% Display results
-disp(['SNR Before Filtering: ', num2str(snr_before), ' dB']);
-disp(['SNR After Filtering: ', num2str(snr_after), ' dB']);
-
-% Plot frequency response
-figure;
-freqz(h_lp, 1, 1024, fs);
-title('Low-Pass Filter Frequency Response');
+    % Calculate improvement as a percentage
+    improvement = snr_after - snr_before;
+    if isnan(snr_before) || isnan(snr_after)
+        snr_before = 0;
+        snr_after = 0;
+        improvement = 0;
+    end
+    if abs(snr_before) > 1e-10
+        improvement = (improvement / abs(snr_before)) * 100;
+    else
+        improvement = 0;
+    end
+end
