@@ -70,6 +70,7 @@ This project calculates the Signal-to-Noise Ratio (SNR) before and after filteri
 
 🔹 Clone the Repository
     git clone https://github.com/jaganathkrishnan/DSP-filters.git
+    
     cd DSP-Filters-Project
 
 🔹 Run MATLAB Scripts
