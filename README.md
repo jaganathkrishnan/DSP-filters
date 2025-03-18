@@ -30,24 +30,33 @@ The **MATLAB GUI** allows users to:
    run('GUI/dsp_filter_gui.m')
 3. Upload an image or audio file.
 4. Select a filter and apply it.
-5. View and save the filtered output.
+5. View and save the filtered output.   
+
 🎤 Audio Processing
+
 This project processes speech and general audio signals using FIR & IIR filters to:
 
 1. Remove noise from speech signals
 2. Apply band-pass filtering to extract important frequencies
 3. Enhance audio quality for better clarity
+
 🔹 Running Audio Filtering Scripts
+
 1. Navigate to the Audio_Processing or Speech_Processing folder.
 2. Open a script (e.g., speech_filtering.m) in MATLAB.
 3. Run the script to process an audio file.
+
 🏥 Biomedical Signal Processing (ECG Filtering)
+
 This project filters ECG signals to remove 60Hz powerline interference and high-frequency noise.
 
 🔹 Running ECG Filtering
+
 1. Open MATLAB and navigate to the Biomedical_Processing folder.
 2. Run the ECG filtering script to process an ECG signal.
+
 🖼️ Image Processing
+
 This project applies digital filtering to images using:
 
 1. Low-Pass Filters (Blur & Noise Reduction)
@@ -58,10 +67,13 @@ This project applies digital filtering to images using:
 1. Run the GUI and upload an image file.
 2. Select a filter type and apply it.
 3. View and save the filtered output.
+
 📊 Performance Evaluation (SNR Comparison)
+
 This project calculates the Signal-to-Noise Ratio (SNR) before and after filtering, showing how effectively the filters reduce noise.
 
 🔹 Running SNR Evaluation
+
 1. Navigate to the Performance_Evaluation folder.
 2. Open the script for SNR comparison.
 3. Run it to see how filtering improves signal quality.
