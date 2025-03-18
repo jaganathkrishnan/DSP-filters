@@ -12,9 +12,7 @@ fc = [0.5 40];
 h_bp = fir1(N, fc/(fs/2), 'bandpass', hamming(N+1));
 filtered_ecg = filter(h_bp, 1, ecg_signal);
 
-% Plot results
 subplot(2,1,1); plot(t, ecg_signal); title('Noisy ECG Signal');
 subplot(2,1,2); plot(t, filtered_ecg); title('Filtered ECG Signal');
 
-% Save filtered ECG signal
 save('../data/filtered_ecg.mat', 'filtered_ecg');

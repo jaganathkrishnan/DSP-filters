@@ -1,20 +1,15 @@
 function dsp_filter_gui
-    % Create GUI Window
     fig = uifigure('Name', 'DSP Filter GUI', 'Position', [100 100 600 500]);
 
-    % Upload Button
     btnUpload = uibutton(fig, 'Text', 'Upload File', 'Position', [50, 420, 120, 30]);
     btnUpload.ButtonPushedFcn = @(btnUpload, event) upload_file();
 
-    % File Type Dropdown (Audio or Image)
     fileTypeDropDown = uidropdown(fig, 'Items', {'Audio', 'Image'}, ...
         'Position', [200, 420, 120, 30]);
 
-    % Filter Selection Drop-Down
     filterDropDown = uidropdown(fig, 'Items', {'Low-Pass', 'High-Pass', 'Band-Pass', 'Band-Stop'}, ...
         'Position', [350, 420, 120, 30]);
 
-    % Apply Filter Button
     btnApply = uibutton(fig, 'Text', 'Apply Filter', 'Position', [500, 420, 100, 30]);
     btnApply.ButtonPushedFcn = @(btnApply, event) apply_filter(filterDropDown.Value, fileTypeDropDown.Value);
 

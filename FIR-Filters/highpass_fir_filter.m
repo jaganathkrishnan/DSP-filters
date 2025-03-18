@@ -14,15 +14,11 @@ delta = zeros(1, N+1);
 delta(N/2 + 1) = 1;
 hd_hpf = delta - hd;
 
-% Window Functions
 w_rect = ones(1, N+1);
 w_hamm = 0.54 - 0.46 * cos(2 * pi * n / (N-1));
-
-% Applying Windows
 h_rect = hd_hpf .* w_rect;
 h_hamm = hd_hpf .* w_hamm;
 
-% Frequency Response
 figure;
 freqz(h_rect, 1, 1024, fs);
 title('Rectangular Window - High-pass Filter');
