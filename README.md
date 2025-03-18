@@ -65,3 +65,11 @@ This project calculates the Signal-to-Noise Ratio (SNR) before and after filteri
 1. Navigate to the Performance_Evaluation folder.
 2. Open the script for SNR comparison.
 3. Run it to see how filtering improves signal quality.
+📖 Installation & Running MATLAB Scripts
+🔹 Clone the Repository
+    git clone https://github.com/yourusername/DSP-Filters-Project.git
+    cd DSP-Filters-Project
+🔹 Run MATLAB Scripts
+1. Navigate to the correct folder (FIR, IIR, Speech, Biomedical, etc.).
+2. Run a script, for example:
+    run('FIR_Filters/highpass_fir_filter.m')
